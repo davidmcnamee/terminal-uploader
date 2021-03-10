@@ -8,7 +8,7 @@ Then you're in luck!
 ## setup
 
 ```sh
-git clone https://github.com/davidmcnamee/terminal-uploader
+git clone https://github.com/davidmcnamee/terminal-uploader.git
 yarn
 cp .env.example .env
 ```
