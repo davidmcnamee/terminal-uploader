@@ -1,6 +1,6 @@
 # Correlation-One Terminal Live Uploader
 
-Are you too lazy to wait for your algo to upload to (c1games.com)[https://terminal.c1games.com/]? Do you wish there was a clunky unreliable automated web browser to do it for you?
+Are you too lazy to wait for your algo to upload to [c1games.com](https://terminal.c1games.com/)? Do you wish there was a clunky unreliable automated web browser to do it for you?
 
 Then you're in luck!
 
