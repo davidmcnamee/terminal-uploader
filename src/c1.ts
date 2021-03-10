@@ -24,8 +24,9 @@ export async function uploadAlgo(page: Page, pathToAlgo: string): Promise<void> 
   await page.waitForTimeout(5*1000); // 5 seconds wait time
   console.log("Done! Go to https://terminal.c1games.com/myalgos to view your algo.");
   console.log('Still waiting on matches to be played...');
-
   await page.waitForSelector('.algo-rating', { timeout: 30*1000 });
+  await page.waitForTimeout(5*1000);
+    
   for(let i = 0; i < 30; ++i) {
     await page.reload();
     await page.waitForTimeout(6*1000);
@@ -40,5 +41,5 @@ export async function uploadAlgo(page: Page, pathToAlgo: string): Promise<void> 
 async function clickOnLatestAlgo(page: Page) {
   const cardHandlers = await page.$$('.card.algo-card.uploaded');
   await cardHandlers[cardHandlers.length-1].click();
-  await page.waitForTimeout(1.5*1000); // 1.5 seconds
+  await page.waitForTimeout(3*1000); // 3 seconds
 }
