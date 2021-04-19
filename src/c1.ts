@@ -12,8 +12,15 @@ export async function uploadAlgo(page: Page, pathToAlgo: string): Promise<void> 
   
   // actually upload the algo
   await page.goto(`https://terminal.c1games.com/myalgos`);
+  await page.waitForSelector("label[for='team-mode']");
+  await page.waitForTimeout(2*1000);
+  await page.click("label[for='team-mode']");
+  await page.waitForTimeout(3*1000);
+
+  console.log('waiting for upload folder')
   await page.waitForSelector("#uploadfolder");
   await page.waitForTimeout(2*1000);
+  console.log('uploading')
   const uploadInputHandle = await page.$("#uploadfolder");
 
   // accept the confirmation dialogue that will appear after upload
@@ -30,6 +37,10 @@ export async function uploadAlgo(page: Page, pathToAlgo: string): Promise<void> 
   for(let i = 0; i < 30; ++i) {
     await page.reload();
     await page.waitForTimeout(6*1000);
+    await page.waitForSelector("label[for='team-mode']");
+    await page.waitForTimeout(2*1000);
+    await page.click("label[for='team-mode']");
+    await page.waitForTimeout(3*1000);
     await clickOnLatestAlgo(page);
     const unfinishedMatches = await page.$x('//div[contains(@class, "algo-matches")]//span[contains(text(),"This algo has not played any matches yet.")]');
     if(unfinishedMatches.length === 0) break;

@@ -8,7 +8,7 @@ async function run() {
   // @ts-ignore https://github.com/berstend/puppeteer-extra/issues/428#issuecomment-778679665
   puppeteer.launch({ headless: false }).then(async browser => {
     const page = await browser.newPage()
-    await page.setViewport({ width: 800, height: 600 })
+    await page.setViewport({ width: 1920, height: 1080 })
     try {
       const pathToAlgo = getAlgoLocation();
       console.log(`uploading algo at path ${pathToAlgo}`)
